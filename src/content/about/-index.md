@@ -1,8 +1,10 @@
 ---
-title: Hey, I'm Jane Doe!
+title: Ciao, sono Edoardo Ferrini!
 description: this is meta description
-image: "@assets/profile/jane-doe.jpg"
+image: "@assets/profile/hero.jpg"
 draft: false
 ---
+Sono uno sviluppatore full stack appassionato con oltre 2 anni di esperienza nella creazione di applicazioni web moderne e intuitive. 
+Mi specializzo in React, .NET e design systems, on un forte focus sull’esperienza utente e le performance.
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis illum nesciunt commodi vel nisi ut alias excepturi ipsum, totam, labore tempora, odit ex iste tempore sed. Fugit voluptatibus perspiciatis assumenda nulla ad nihil, omnis vel, doloremque sit quam autem optio maiores, illum eius facilis et quo consectetur provident dolor similique! Enim voluptatem dicta expedita veritatis repellat dolorum impedit, provident quasi at.
+    

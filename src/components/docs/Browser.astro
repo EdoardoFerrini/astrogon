@@ -14,24 +14,22 @@ const { menu, currentPage } = Astro.props;
   menu.length > 0 && (
     <div class="relative glass rounded-lg p-4 my-2 w-full intersect:animate-fadeRight opacity-0">
       <ScrollArea className="h-full" client:only="react">
-        <h2 class="text-2xl border-none">Documents</h2>
-        <ul class="list-none m-0">
+        <h2 class="text-2xl border-none mb-4">Documents</h2> <!-- Aggiunto mb-4 -->
+        <ul class="list-none m-0 space-y-3"> <!-- Aggiunto space-y-3 -->
           {menu.map((item) => (
-            <li class="ml-0">
+            <li class="ml-0 py-1"> <!-- Aggiunto py-1 -->
               <a
                 href={`/docs/${item.id}`}
-                class={`w-full leading-none no-underline ${item.id === currentPage ? "font-bold" : ""}`}
-              >
+                class={`w-full leading-none no-underline block py-1 ${item.id === currentPage ? "font-bold" : ""}`} <!-- Aggiunto block py-1 -->
                 {item.title}
               </a>
               {item.children.length > 0 && (
-                <ul class="list-none m-0">
+                <ul class="list-none m-0 mt-2 space-y-2"> <!-- Aggiunto mt-2 e space-y-2 -->
                   {item.children.map((child) => (
-                    <li class="ml-4">
+                    <li class="ml-4 py-1"> <!-- Aggiunto py-1 -->
                       <a
                         href={`/docs/${child.id}`}
-                        class={`w-full leading-none no-underline ${child.id === currentPage ? "font-bold" : ""}`}
-                      >
+                        class={`w-full leading-none no-underline block py-1 ${child.id === currentPage ? "font-bold" : ""}`} <!-- Aggiunto block py-1 -->
                         {child.title}
                       </a>
                     </li>
