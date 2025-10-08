@@ -26,6 +26,71 @@ const menu = [
 ];
 ---
 
+<style>
+  /* Mobile-only media query (adjust breakpoint if your 'md' is not 768px) */
+  @media (max-width: 767px) {
+    /* Always position the menu wrapper as absolute on mobile, but hidden via opacity/visibility */
+    div.menu-wrapper {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: hsl(var(--glass-bg)); /* Matches your glass class; adjust if needed */
+      backdrop-filter: blur(10px); /* For glass effect */
+      border: 1px solid hsl(var(--border));
+      border-top: none; /* Avoid double border with header */
+      z-index: 20;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Show and animate in when toggled */
+    #nav-toggle:checked ~ div.menu-wrapper {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* Style the UL as vertical list on mobile */
+    div.menu-wrapper ul {
+      flex-direction: column !important;
+      align-items: stretch;
+      gap: 0.5rem;
+      padding: 1rem;
+      margin: 0;
+      list-style: none;
+    }
+
+    /* Make links full-width and left-aligned on mobile */
+    div.menu-wrapper li a {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 0.75rem 1rem !important;
+      border-radius: 0.25rem;
+      transition: background-color 0.2s ease;
+    }
+
+    /* Optional: Hover/focus state for mobile links */
+    div.menu-wrapper li a:hover,
+    div.menu-wrapper li a:focus {
+      background: hsl(var(--glass-bg-hover, 0 0% 10% / 0.1));
+    }
+
+    /* Hide/show icons in the toggler label */
+    #nav-toggle:checked + label #show-button {
+      display: none;
+    }
+
+    #nav-toggle:checked + label #hide-button {
+      display: block;
+    }
+  }
+</style>
+
 <header
   transition:persist
   class={`container glass py-2 z-30 mb-4 lg:mt-4 lg:rounded-lg ${stickyHeader && "sticky top-0"}`}
@@ -51,7 +116,7 @@ const menu = [
     <!-- /navbar toggler -->
 
     <!-- Menu centrato - wrapper per il centramento -->
-    <div class="hidden md:block md:absolute md:left-1/2 md:top-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2">
+    <div class="menu-wrapper hidden md:block md:absolute md:left-1/2 md:top-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2">
       <ul class="flex space-x-2 lg:space-x-4">
         {
           menu.map((item) => (
