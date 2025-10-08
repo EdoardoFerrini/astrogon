@@ -1,6 +1,5 @@
 import { defineCollection, reference, z } from "astro:content";
 import { glob } from "astro/loaders";
-
 // May also need to update /src/types/index.d.ts when updating this file
 // When updating the set of searchable collections, update collectionList in /src/pages/search.astro
 

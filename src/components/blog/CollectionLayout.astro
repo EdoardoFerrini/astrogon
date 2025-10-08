@@ -32,8 +32,26 @@ const {
   <section class="section">
     <div class="flex container">
       <div class="row px-0 mx-0 w-full">
+      
         <!-- blog posts -->
-        <div class="col-12 lg:col-8 lg:p-0">
+        <div class="flex items-center gap-3 mb-8">
+        <h1 class="text-3xl font-bold">{entryIndex.data.title}</h1>
+        <a 
+        href="/rss.xml" 
+        class="feed-icon inline-flex items-center justify-center w-10 h-10 text-gray-500 hover:text-orange-500 dark:text-gray-400 dark:hover:text-orange-400 transition-colors"
+        title="Sottoscrivi il RSS Feed del Blog"
+        target="_blank">
+        <img 
+        src="/rss.png" 
+        alt="RSS Feed" 
+        width="20" 
+        height="20"
+        class="w-5 h-5"
+        />
+        </a>
+    </div>
+
+          <!-- Lista dei post del blog -->
           {
             entries.map((entry) => (
               <div class="mb-4">
@@ -61,3 +79,23 @@ const {
     </div>
   </section>
 </BaseLayout>
+
+<style>
+.feed-icon {
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.feed-icon:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.feed-icon img {
+  transition: filter 0.2s ease;
+}
+
+.feed-icon:hover img {
+  filter: grayscale(0%);
+}
+</style>
